@@ -1,0 +1,49 @@
+// @import "../styles/variables";
+// @import "../styles/mixins";
+// @import "../styles/responsive";
+@import '../../styles/variables';
+
+
+.overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $color-overlay;
+}
+.loading-dual-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin:0px auto;
+  width: 80px;
+  height: 80px;
+  background-color: transparent;
+  z-index: 1000;
+  display: block;
+}
+
+.loading-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 8px solid $color-loading;
+  border-color: $color-loading transparent $color-loading transparent;
+  animation: loading-dual-ring 1.2s linear infinite;
+}
+
+@keyframes loading-dual-ring {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
+}
+

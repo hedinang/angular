@@ -1,0 +1,272 @@
+{
+  "app-name": "Affiliate-System",
+  "header": {
+    "function": {
+      "title": "Chức năng",
+      "partner": "Quản lý đối tác",
+      "campaign": "Quản lý chiến dịch"
+    },
+    "search": {
+      "title": "Tìm kiếm"
+    },
+    "report": {
+      "title": "Báo cáo"
+    },
+    "manager-system": {
+      "title": "Quản lý hệ thống",
+      "account": "Quản lý tài khoản",
+      "group-user": "Quản lý nhóm tài khoản",
+      "permissions": "Quản lý quyền hạn"
+    },
+    "support": {
+      "title": "Hỗ trợ"
+    },
+    "language": {
+      "title":"Ngôn ngữ",
+      "vi": "Tiếng Việt",
+      "en": "Tiếng Anh"
+    },
+    "avatar": {
+      "information": "Thông tin tài khoản",
+      "logout": "Đăng xuất"
+    }
+  },
+  "body": {
+    "login": {
+      "title": "Đăng nhập",
+      "username": "Tên đăng nhập",
+      "password": "Mật khẩu",
+      "remember-me": "Nhớ mật khẩu",
+      "forgot-password": "Quên mật khẩu ?"
+    },
+    "share": {
+      "control-group": {
+        "add": " Thêm mới",
+        "edit": " Sửa",
+        "option": "Tùy chọn",
+        "delete": "Xóa",
+        "export-excel": "Xuất Excel"
+      }
+    },
+    "home": {
+      "title": "BÁO CÁO CHIẾN DỊCH",
+      "campaign-report": {
+        "table": {
+          "id": "STT",
+          "partner": "Tên đối tác",
+          "title": "Tiêu đề",
+          "source": "Nguồn",
+          "action": "Hành động",
+          "view-number": "Lượt xem",
+          "click-number": "Lượt click",
+          "income": "Doanh thu",
+          "register": "Đăng ký",
+          "cancle": "Hủy",
+          "mo": "MO",
+          "renew": "Gia hạn",
+          "detail": "Chi tiết"
+        },
+        "request": {
+          "startDate": "Ngày bắt đầu",
+          "endDate": " Ngày kết thúc",
+          "statistics": "Kiểu thống kê",
+          "byDay": "Theo ngày",
+          "byMonth": "Theo tháng"
+        },
+        "chart": {
+          "bar-chart": "Biểu đồ cột",
+          "pie-chart": "Biểu đồ tròn"
+        },
+        "tracking": {
+          "title": "THEO DÕI",
+          "os": {
+            "title": "hệ điều hành",
+            "name": "Số lượng"
+          },
+          "isp": {
+            "title": "nhà cung cấp mạng",
+            "name": "Số lượng"
+          }
+        },
+        "income": {
+          "title": "DOANH THU",
+          "type": "loại doanh thu",
+          "value": "doanh thu",
+          "currency-unit": "VND",
+          "day": "Ngày tháng"
+        }
+      }
+    },
+    "manager-system": {
+      "account": {
+        "title": "QUẢN LÝ TÀI KHOẢN",
+        "translate": "tài khoản",
+        "control": {
+          "add": {
+            "title": "Thêm mới tài khoản"
+          },
+          "edit": {
+            "title": "Sửa tài khoản"
+          },
+          "delete": {
+            "title": "Xác nhận",
+            "message": "Bạn chắc chắn muốn xóa tài khoản ?"
+          }
+        },
+        "table": {
+          "id": "STT",
+          "partnerName": "Tên đối tác",
+          "userName": "Tên đăng nhập",
+          "displayName": "Tên hiển thị",
+          "email": "Email",
+          "phoneNumber": "Số điện thoại",
+          "groupAccount": "Nhóm người dùng",
+          "status": "Trạng thái"
+        }
+      },
+      "group-account": {
+        "title": "QUẢN LÝ NHÓM TÀI KHOẢN",
+        "translate": "nhóm tài khoản",
+        "control": {
+          "add": {
+            "title": "Thêm mới nhóm tài khoản"
+          },
+          "edit": {
+            "title": "Sửa nhóm tài khoản"
+          },
+          "delete": {
+            "title": "Xác nhận",
+            "message": "Bạn chắc chắn muốn xóa nhóm tài khoản ?"
+          },
+          "option": {
+            "name": "Quyền hạn",
+            "title": "Sửa quyền hạn của group",
+            "action-text": "cập nhật quyền hạn của"
+          }
+        },
+        "table": {
+          "id": "STT",
+          "name": "Tên nhóm tài khoản",
+          "descriptions": "Mô tả về nhóm tài khoản",
+          "code": "Mã nhóm tài khoản"
+        }
+      },
+      "permissions": {
+        "title": "QUẢN LÝ QUYỀN HẠN",
+        "translate": "quyền hạn",
+        "control": {
+          "add": {
+            "title": "Thêm mới quyền hạn"
+          },
+          "edit": {
+            "title": "Sửa quyền hạn"
+          },
+          "delete": {
+            "title": "Xác nhận",
+            "message": "Bạn chắc chắn muốn xóa quyền hạn ?"
+          }
+        },
+        "table": {
+          "id": "STT",
+          "code": "Mã quyền hạn",
+          "name": "Tên quyền hạn",
+          "descriptions": "Mô tả quyền hạn",
+          "parent": "Quyền hạn gốc"
+        }
+      }
+    },
+    "function": {
+      "partner": {
+        "title": "QUẢN LÝ ĐỐI TÁC",
+        "translate": "đối tác",
+        "control": {
+          "add": {
+            "title": "Thêm mới đối tác"
+          },
+          "edit": {
+            "title": "Sửa đối tác"
+          },
+          "delete": {
+            "title": "Xác nhận",
+            "message": "Bạn chắc chắn muốn xóa đối tác ?"
+          }
+        },
+        "table": {
+          "id": "STT",
+          "name": "Tên đối tác",
+          "description": "Mô tả về đối tác",
+          "status": "Trạng thái"
+        },
+        "toast": {
+          "error-status": "Đối tác vẫn đang được sử dụng"
+        }
+      },
+      "campaign": {
+        "title": "QUẢN LÝ CHIẾN DỊCH",
+        "translate": "chiến dịch",
+        "control": {
+          "add": {
+            "title": "Thêm mới chiến dịch"
+          },
+          "edit": {
+            "title": "Sửa chiến dịch"
+          },
+          "delete": {
+            "title": "Xác nhận",
+            "message": "Bạn chắc chắn muốn xóa chiến dịch ?"
+          },
+          "option": {
+            "title": "Tạo liên kết quản lý",
+            "action": "Sao chép tới Clipboard",
+            "notify": "Sao chép dữ liệu thành công"
+          }
+        },
+        "table": {
+          "id": "STT",
+          "partner": "Đối tác",
+          "title": "Tiêu đề",
+          "source": "Nguồn",
+          "type": "Loại đối tác",
+          "is-post-back": "Gửi lại"
+        },
+        "post-back": {
+          "yes": "Có gửi lại",
+          "no": "Không gửi lại"
+        },
+        "type": {
+          "not-found": "Không có dữ liệu"
+        }
+      }
+    },
+    "user-infor": {
+      "title": "THÔNG TIN TÀI KHOẢN"
+    },
+    "search": {
+      "notFoundText": "Không tìm thấy kết quả"
+    },
+    "pagegination": {
+      "next": "Sau",
+      "previous": "Trước",
+      "screenReaderCurrent": "Bạn đang ở trang"
+    },
+    "toastr": {
+      "success": "thành công",
+      "unsuccess": " không thành công",
+      "notify": "Bạn đã",
+      "notify-add": "Bạn đã thêm",
+      "notify-edit": "Bạn đã cập nhật",
+      "notify-delete": "Bạn đã xóa",
+      "complete": "Hoàn Thành",
+      "error": "Xảy ra lỗi"
+    },
+    "modal": {
+      "yes": "Đồng ý",
+      "no": "Không đồng ý",
+      "cancle": "Hủy bỏ",
+      "submit": "Thực hiện",
+      "create": "Tạo mới",
+      "edit": "Cập nhật"
+    }
+  },
+  "footer": {}
+}

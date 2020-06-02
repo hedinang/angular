@@ -1,0 +1,35 @@
+<div class="login-form">
+  <form *ngIf="form" [formGroup]="form" (ngSubmit)="onLogin()">
+    <div class="text-center logo">
+      <img src="../../../assets/images/logo.png" alt="Logo">
+    </div>
+    <h2 translate class="text-center title">body.login.title</h2>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="login-username"><em class="fa fa-user"></em></span>
+        </div>
+        <input type="text" class="form-control" aria-describedby="login-username" name="username"
+          placeholder="{{'body.login.username' | translate}}" required="required"
+          [ngClass]="{'has-invalid': this.UserName.invalid && (this.UserName.dirty && this.UserName.touched) }" formControlName="userName">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="login-password"><em class="fa fa-lock"></em></span>
+        </div>
+        <input type="password" class="form-control" aria-describedby="login-password" name="password"
+          placeholder="{{'body.login.password' | translate}}" required="required"
+          [ngClass]="{'has-invalid': this.PassWord.invalid && (this.PassWord.dirty && this.PassWord.touched) }" formControlName="passWord">
+      </div>
+    </div>
+    <div class="form-group">
+      <button translate type="submit" class="btn btn-primary login-btn btn-block" (click)="onLogin()">body.login.title</button>
+    </div>
+    <div class="clearfix">
+      <a translate href="#" class="float-right">body.login.forgot-password</a>
+    </div>
+  </form>
+
+</div>

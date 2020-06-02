@@ -1,0 +1,24 @@
+<div class="modal-header">
+  <h5 class="modal-title">
+    {{'body.manager-system.group-account.control.option.title' | translate }}
+  </h5>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="onClose('NO')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <ngx-treeview [config]="config" [items]="items" (filterChange)="onFilterChange($event)" (selectedChange)="onSelectChange($event)">
+  </ngx-treeview>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="onSubmit()">
+    <em class="fa fa-pencil pr-1"></em>
+    <span
+      translate>{{(this.groupAccount === null || this.groupAccount === undefined) ? ('body.modal.create' |translate) : ('body.modal.edit' | translate) }}</span>
+  </button>
+  <button type="button" class="btn btn-secondary" (click)="onClose('NO')" translate>
+    <em class="fa fa-close pr-1"></em>
+    <span translate>body.modal.cancle</span>
+  </button>
+</div>
+

@@ -1,0 +1,55 @@
+<app-control-campaign-report [campaignReportForm]="campaignReportForm" [isShow]="isShowControl"
+  (action)="getCampaignReport()">
+</app-control-campaign-report>
+<div class="box box-plane">
+  <div class="box-header">
+    <div class="box-title">
+      <ui-switch (change)="!isShowControl = isShowControl" [(ngModel)]="isShowControl"></ui-switch>
+    </div>
+  </div>
+</div>
+
+<app-box-header [title]="'body.home.campaign-report.tracking.title' | translate"></app-box-header>
+<div class="row mr-0">
+  <div class="col-6 pr-0">
+    <div class="box box-plane">
+      <div class="box-body">
+        <div class="box-body-item">
+          <highcharts-chart id="os" [Highcharts]="osHighcharts" [options]="osChartOptions"  [(update)]="updateOs"
+            style="width: 100%; height: 350px; display: block;"></highcharts-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 pr-0" style="padding-left: 0.5rem;">
+    <div class="box box-plane">
+      <div class="box-body">
+        <div class="box-body-item">
+          <highcharts-chart id="isp" [Highcharts]="ispHighChart" [options]="ispChartOption" [(update)] = "updateIsp"
+            style="width: 100%; height: 350px; display: block;"></highcharts-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mt-2">
+  <app-box-header [title]="'body.home.campaign-report.income.title' | translate" [hasMarginBottom]=false>
+  </app-box-header>
+</div>
+<div class="box box-plane">
+  <div class="box-body">
+    <div class="box-body-item">
+      <highcharts-chart id="income-value" [Highcharts]="incomeValueHightChart" [options]="incomeValueChartOption" [(update)] = "updateIncomeValue"
+        style="width: 100%; height: 350px; display: block;"></highcharts-chart>
+    </div>
+  </div>
+</div>
+
+<div class="box box-plane mt-2">
+  <div class="box-body">
+    <div class="box-body-item">
+      <highcharts-chart id = "income-type" [Highcharts]="incomeTypeHightChart" [options]="incomeTypeChartOption" [(update)] = "updateIncomeType"
+        style="width: 100%; height: 350px; display: block;"></highcharts-chart>
+    </div>
+  </div>
+</div>

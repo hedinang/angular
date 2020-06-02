@@ -1,0 +1,53 @@
+@import '../../@theme/styles/variables';
+@import '../../@theme/styles/mixins';
+
+.login-form {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $color-bg-header;
+  @include flex-center(true, false);
+
+  form {
+    margin-bottom: 0;
+    background: #f7f7f7;
+    box-shadow: 0px 2px 2px #0000004d;
+    padding: 30px;
+    margin: 0 auto;
+
+    .logo {
+      background: $color-bg-header;
+      margin-bottom: 1rem;
+    }
+    .title {
+      color: $color-item-dropdown;
+    }
+  }
+
+  h2 {
+    margin: 0 0 15px;
+  }
+
+  .input-group-prepend {
+    .fa {
+      font-size: 18px;
+    }
+  }
+
+  .form-control {
+    .login-btn {
+      min-height: 38px;
+      border-radius: 2px;
+    }
+  }
+
+}
+
+.login-btn {
+  font-size: 15px;
+  font-weight: bold;
+}

@@ -1,0 +1,66 @@
+<!-- Control -->
+<div class="box-body-item">
+  <app-control-group [isDisableAdd]="!enableAddButton" [isDisableEdit]="!enableEditButton"
+    [isDisableDelete]="!enableEditButton" [showExportExcel]=false (add)="addPermissions()"
+    (edit)="editPermissions(permisstionSelected)" (delete)="deletePermissions(permisstionSelected)">
+  </app-control-group>
+</div>
+<!-- Table -->
+<div class="box-body-item">
+  <table class="table table-hover table-bordered" id="permissions-list">
+    <thead>
+      <tr>
+        <th translate>body.manager-system.permissions.table.id</th>
+        <th translate>body.manager-system.permissions.table.code</th>
+        <th translate>body.manager-system.permissions.table.name</th>
+        <th translate>body.manager-system.permissions.table.descriptions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-control">
+        <td></td>
+        <td>
+          <input translate type="text" class="form-control input-search"
+            [placeholder]="'body.manager-system.permissions.table.code' |translate" autocomplete="off"
+            [(ngModel)]="code" (keyup.enter)="search(keyForSorts[0])" (focusout)="search(keyForSorts[0])"
+            (keydown)="resetInputSearch(keyForSorts[0])" />
+        </td>
+        <td>
+          <input translate type="text" class="form-control input-search"
+            [placeholder]="'body.manager-system.permissions.table.name' |translate" autocomplete="off"
+            [(ngModel)]="name" (keyup.enter)="search(keyForSorts[1])" (focusout)="search(keyForSorts[1])"
+            (keydown)="resetInputSearch(keyForSorts[1])" />
+        </td>
+        <td>
+          <input translate type="text" class="form-control input-search"
+            [placeholder]="'body.manager-system.permissions.table.descriptions' |translate" autocomplete="off"
+            [(ngModel)]="descriptions" (keyup.enter)="search(keyForSorts[2])" (focusout)="search(keyForSorts[2])"
+            (keydown)="resetInputSearch(keyForSorts[2])" />
+        </td>
+      </tr>
+      <tr *ngFor="let permission of listPermistions | paginate : {
+        itemsPerPage: itemsPerPage,
+        currentPage: currentPage,
+        totalItems: totalItems
+      }; let i = index" (click)="selectedAccount(permission)"
+        [ngClass]="{'selected-item': permission.id === permisstionSelected.id}">
+        <td class="text-center">{{i+1 +(currentPage -1)*itemsPerPage}}</td>
+        <td>{{permission.code}}</td>
+        <td>{{permission.name}}</td>
+        <td>{{permission.descriptions}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination -->
+  <div class="d-flex flex-row-reverse">
+    <ng-select class="page-size" dropdownPosition="bottom" [clearable]="false" [searchable]="false"
+      [(ngModel)]="itemsPerPage">
+      <ng-option *ngFor="let number of numberItemPerPages" [value]="number">{{number}}</ng-option>
+    </ng-select>
+    <pagination-controls (pageChange)="onChangePage($event)" (pageBoundsCorrection)="onChangePage($event)"
+      directionLinks="true" responsive="true" [previousLabel]="'body.pagegination.previous'| translate"
+      [nextLabel]="'body.pagegination.next'| translate"
+      [screenReaderCurrentLabel]="'body.pagegination.screenReaderCurrent'| translate">
+    </pagination-controls>
+  </div>

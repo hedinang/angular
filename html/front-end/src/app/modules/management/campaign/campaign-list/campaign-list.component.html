@@ -1,0 +1,87 @@
+<!-- Control -->
+<div class="box-body-item">
+  <app-control-group [isDisableAdd]="!enableAddButton" [isDisableEdit]="!enableEditButton"
+    [isDisableDelete]="!enableEditButton" [showExportExcel]=false (add)="addCampaign()"
+    (edit)="editCampaign(campaignSelected)" (delete)="deleteCampaign(campaignSelected)" [showOption]=true
+    [optionText]="'body.function.campaign.control.option.title' |translate"
+    (option)="createLinkCampaign(campaignSelected)" [isDisableOption]="!enableEditButton">
+  </app-control-group>
+</div>
+<!-- Table -->
+<div class="box-body-item">
+  <table class="table table-hover table-bordered" id="account-list">
+    <thead>
+      <tr>
+        <th translate>body.function.campaign.table.id</th>
+        <th translate>body.function.campaign.table.partner</th>
+        <th translate>body.function.campaign.table.title</th>
+        <th translate>body.function.campaign.table.source</th>
+        <th translate>body.function.campaign.table.type</th>
+        <th translate>body.function.campaign.table.is-post-back</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-control">
+        <td></td>
+        <td>
+          <ng-select class="input-search" [clearable]="false" dropdownPosition="bottom"
+            (change)="search(keyForSorts[0])" [notFoundText]="'body.search.notFoundText' |translate"
+            [(ngModel)]="partner" [placeholder]="'body.function.campaign.table.partner' |translate">
+            <ng-option *ngFor="let partner of listPartners" [value]="partner">{{partner.name}}</ng-option>
+          </ng-select>
+        </td>
+        <td>
+          <input translate type="text" class="form-control input-search"
+            [placeholder]="'body.function.campaign.table.title' |translate" autocomplete="off" [(ngModel)]="title"
+            (keyup.enter)="search(keyForSorts[1])" (focusout)="search(keyForSorts[1])"
+            (keydown)="resetInputSearch(keyForSorts[1])" />
+        </td>
+        <td>
+          <input translate type="text" class="form-control input-search"
+            [placeholder]="'body.function.campaign.table.source' |translate" autocomplete="off" [(ngModel)]="source"
+            (keyup.enter)="search(keyForSorts[2])" (focusout)="search(keyForSorts[2])"
+            (keydown)="resetInputSearch(keyForSorts[2])" />
+        </td>
+        <td>
+          <input translate type="text" class="form-control input-search"
+            [placeholder]="'body.function.campaign.table.type' |translate" autocomplete="off" [(ngModel)]="type"
+            (keyup.enter)="search(keyForSorts[3])" (focusout)="search(keyForSorts[3])"
+            (keydown)="resetInputSearch(keyForSorts[3])" />
+        </td>
+        <td>
+          <input translate type="text" class="form-control input-search"
+            [placeholder]="'body.function.campaign.table.is-post-back' |translate" autocomplete="off"
+            [(ngModel)]="isPostBack" (keyup.enter)="search(keyForSorts[4])" (focusout)="search(keyForSorts[4])"
+            (keydown)="resetInputSearch(keyForSorts[4])" />
+        </td>
+      </tr>
+      <tr *ngFor="let campaign of listCampaigns | paginate : {
+        itemsPerPage: itemsPerPage,
+        currentPage: currentPage,
+        totalItems: totalItems
+      }; let i = index" (click)="selectedCampaign(campaign)"
+        [ngClass]="{'selected-item': campaign.id === campaignSelected.id}">
+        <td class="text-center">{{i+1 +(currentPage -1)*itemsPerPage}}</td>
+        <td>{{campaign.partnerName}}</td>
+        <td>{{campaign.title}}</td>
+        <td>{{campaign.source}}</td>
+        <td>{{campaign.type !== null ? campaign.type : 'body.function.campaign.type.not-found' | translate}}</td>
+        <td>
+          {{campaign.isPostBack === true ? ('body.function.campaign.post-back.yes' | translate) : ('body.function.campaign.post-back.no' | translate) }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination -->
+  <div class="d-flex flex-row-reverse">
+    <ng-select class="page-size" dropdownPosition="bottom" [clearable]="false" [searchable]="false"
+      [(ngModel)]="itemsPerPage">
+      <ng-option *ngFor="let number of numberItemPerPages" [value]="number">{{number}}</ng-option>
+    </ng-select>
+    <pagination-controls (pageChange)="onChangePage($event)" (pageBoundsCorrection)="onChangePage($event)"
+      directionLinks="true" responsive="true" [previousLabel]="'body.pagegination.previous'| translate"
+      [nextLabel]="'body.pagegination.next'| translate"
+      [screenReaderCurrentLabel]="'body.pagegination.screenReaderCurrent'| translate">
+    </pagination-controls>
+  </div>

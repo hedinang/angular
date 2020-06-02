@@ -1,0 +1,95 @@
+<!-- Control -->
+<div class="box-body-item">
+  <app-control-group [isDisableAdd]="!enableAddButton" [isDisableEdit]="!enableEditButton"
+    [isDisableDelete]="!enableEditButton" [showExportExcel]=false (add)="addAccount()"
+    (edit)="editAccount(accountSelected)" (delete)="deleteAccount(accountSelected)">
+  </app-control-group>
+</div>
+<!-- Table -->
+<div class="box-body-item">
+  <table class="table table-hover table-bordered" id="account-list">
+    <thead>
+      <tr>
+        <th translate>body.manager-system.account.table.id</th>
+        <th translate>body.manager-system.account.table.partnerName</th>
+        <th translate>body.manager-system.account.table.userName</th>
+        <th translate>body.manager-system.account.table.displayName</th>
+        <th translate>body.manager-system.account.table.email</th>
+        <th translate>body.manager-system.account.table.phoneNumber</th>
+        <th translate>body.manager-system.account.table.groupAccount</th>
+        <th translate>body.manager-system.account.table.status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-control">
+        <td></td>
+        <td>
+          <ng-select class="input-search" [clearable]="false" dropdownPosition="bottom"
+            (change)="search(keyForSorts[0])" [notFoundText]="'body.search.notFoundText' |translate"
+            [(ngModel)]="partner" [placeholder]="'body.manager-system.account.table.partnerName' |translate">
+            <ng-option *ngFor="let partner of listPartners" [value]="partner">{{partner.name}}</ng-option>
+          </ng-select>
+        </td>
+        <td>
+          <input translate type="text" class="form-control input-search"
+            [placeholder]="'body.manager-system.account.table.userName' |translate" autocomplete="off"
+            [(ngModel)]="userName" (keyup.enter)="search(keyForSorts[1])" (focusout)="search(keyForSorts[1])"
+            (keydown)="resetInputSearch(keyForSorts[1])" />
+        </td>
+        <td>
+          <input translate type="text" class="form-control input-search"
+            [placeholder]="'body.manager-system.account.table.displayName' |translate" autocomplete="off"
+            [(ngModel)]="displayName" (keyup.enter)="search(keyForSorts[2])" (focusout)="search(keyForSorts[2])"
+            (keydown)="resetInputSearch(keyForSorts[2])" />
+        </td>
+        <td>
+          <input translate type="text" class="form-control input-search"
+            [placeholder]="'body.manager-system.account.table.email' |translate" autocomplete="off" [(ngModel)]="email"
+            (keyup.enter)="search(keyForSorts[3])" (focusout)="search(keyForSorts[3])"
+            (keydown)="resetInputSearch(keyForSorts[3])" />
+        </td>
+        <td>
+          <input translate type="text" class="form-control input-search"
+            [placeholder]="'body.manager-system.account.table.phoneNumber' |translate" autocomplete="off"
+            [(ngModel)]="phoneNumber" (keyup.enter)="search(keyForSorts[4])" (focusout)="search(keyForSorts[4])"
+            (keydown)="resetInputSearch(keyForSorts[4])" />
+        </td>
+        <td>
+          <ng-select class="input-search" [clearable]="true" dropdownPosition="bottom" (change)="search(keyForSorts[5])"
+            [notFoundText]="'body.search.notFoundText' |translate" [(ngModel)]="groupAccount"
+            [placeholder]="'body.manager-system.account.table.groupAccount' |translate">
+            <ng-option *ngFor="let groupAccount of listGroupAccount" [value] = "groupAccount">{{groupAccount.name}}</ng-option>
+          </ng-select>
+        </td>
+        <td></td>
+      </tr>
+      <tr *ngFor="let account of listAccount | paginate : {
+        itemsPerPage: itemsPerPage,
+        currentPage: currentPage,
+        totalItems: totalItems
+      }; let i = index" (click)="selectedAccount(account)"
+        [ngClass]="{'selected-item': account.id === accountSelected.id}">
+        <td class="text-center">{{i+1 +(currentPage -1)*itemsPerPage}}</td>
+        <td>{{account.partnerName}}</td>
+        <td>{{account.userName}}</td>
+        <td>{{account.displayName}}</td>
+        <td>{{account.email}}</td>
+        <td>{{account.phoneNumber}}</td>
+        <td>{{account.groupName}}</td>
+        <td>{{account.isActive == true ? 'Sử dụng': 'Không sử dụng'}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination -->
+  <div class="d-flex flex-row-reverse">
+    <ng-select class="page-size" dropdownPosition="bottom" [clearable]="false" [searchable]="false"
+      [(ngModel)]="itemsPerPage">
+      <ng-option *ngFor="let number of numberItemPerPages" [value]="number">{{number}}</ng-option>
+    </ng-select>
+    <pagination-controls (pageChange)="onChangePage($event)" (pageBoundsCorrection)="onChangePage($event)"
+      directionLinks="true" responsive="true" [previousLabel]="'body.pagegination.previous'| translate"
+      [nextLabel]="'body.pagegination.next'| translate"
+      [screenReaderCurrentLabel]="'body.pagegination.screenReaderCurrent'| translate">
+    </pagination-controls>
+  </div>

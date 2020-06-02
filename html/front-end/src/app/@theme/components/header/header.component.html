@@ -1,0 +1,90 @@
+<header *ngIf="isLogin">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="['/home']">
+        <img src="../assets/images/logo.png" alt="Logo" class="height-30">
+      </a>
+      <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent"
+        [attr.aria-expanded]="!isCollapsed" aria-label="Show Menu" (click)="isCollapsed = !isCollapsed">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" [collapse]="isCollapsed" [isAnimated]="true">
+        <ul class="navbar-nav mr-auto">
+          <!-- Function -->
+          <li class="nav-item dropdown" dropdown [autoClose]="true" [isAnimated]="true" placement="bottom left">
+            <a id="function" dropdownToggle type="button" class="nav-link dropdown-toggle"
+              aria-controls="dropdown-function" translate>header.function.title</a>
+            <ul id="dropdown-function" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="function">
+              <li role="menuitem">
+                <a translate class="dropdown-item" href="#"
+                  [routerLink]="['/management/partner']">header.function.partner</a>
+              </li>
+              <li role="menuitem">
+                <a translate class="dropdown-item" href="#"
+                  [routerLink]="['/management/campaign']">header.function.campaign</a>
+              </li>
+            </ul>
+          </li>
+          <!-- Search -->
+          <li class="nav-item">
+            <a translate href="" class="nav-link">header.search.title</a>
+          </li>
+          <!-- Report -->
+          <li class="nav-item">
+            <a translate class="nav-link" href="#">header.report.title</a>
+          </li>
+          <!-- Manager -->
+          <li dropdown class="nav-item dropdown" [autoClose]="true" [isAnimated]="true" placement="bottom left">
+            <a id="manager" translate dropdownToggle type="button" class="nav-link dropdown-toggle"
+              aria-controls="dropdown-manager">
+              header.manager-system.title
+            </a>
+            <ul id="dropdown-manager" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="manager">
+              <li role="menuitem">
+                <a translate class="dropdown-item" href="#"
+                  [routerLink]="['/management/account']">header.manager-system.account</a>
+              </li>
+              <li role="menuitem">
+                <a translate class="dropdown-item" href="#"
+                  [routerLink]="['/management/group-account']">header.manager-system.group-user</a>
+              </li>
+              <li role="menuitem">
+                <a translate class="dropdown-item" href="#"
+                  [routerLink]="['/management/permissions']">header.manager-system.permissions</a>
+              </li>
+            </ul>
+          </li>
+          <!-- Support -->
+          <li class="nav-item">
+            <a translate href="" class="nav-link">header.support.title</a>
+          </li>
+          <!-- Language -->
+          <li class="nav-item d-flex align-items-center no-hover">
+            <ng-select id="select-language" dropdownPosition="bottom" [placeholder]="'header.language.title' |translate"
+              [clearable]="false" (change)= "changeLanguage()" [(ngModel)]="languageSelected">
+              <ng-option *ngFor="let item of languages"  [value]="item">{{('header.language.' + item) |translate }}</ng-option>
+            </ng-select>
+          </li>
+        </ul>
+        <!-- Avatar -->
+        <ul class="navbar-nav ml-auto">
+          <li dropdown class="nav-item dropdown " [autoClose]="true" [isAnimated]="true" placement="bottom right">
+            <a dropdownToggle id="avatar" class="nav-link dropdown-toggle " aria-controls="dropdown-avatar">
+              <em class="fa fa-user"></em>
+              <span>{{userName}}</span>
+            </a>
+            <ul id="dropdown-avatar" *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu"
+              aria-labelledby="avatar">
+              <li role="menuitem">
+                <a translate href="" class="dropdown-item" [routerLink]="['/user-info']">header.avatar.information</a>
+              </li>
+              <li role="menuitem">
+                <a translate href="" class="dropdown-item" (click)="onLogout()">header.avatar.logout</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

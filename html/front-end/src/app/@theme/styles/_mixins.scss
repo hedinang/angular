@@ -1,0 +1,13 @@
+@import "variables";
+
+@mixin flex-center($v, $h) {
+  display: flex;
+
+  @if $v {
+    align-items: center;
+  }
+
+  @if $h {
+    justify-content: center;
+  }
+}

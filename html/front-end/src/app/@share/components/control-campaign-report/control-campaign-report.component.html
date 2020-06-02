@@ -1,0 +1,44 @@
+<div class="box box-pane" *ngIf="isShow" >
+  <div class="box-body">
+    <div class="box-body-item" >
+      <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+        <div class="form-group row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="start-date"
+                class="font-weight-bold">{{'body.home.campaign-report.request.startDate'|translate}}:</label>
+              <input type="text" class="form-control input-search" name="" id="start-date" autocomplete="off"
+                formControlName="startDate" [placeholder]="'body.home.campaign-report.request.startDate' | translate"
+                bsDatepicker [bsValue]="" [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD-MM-YYYY' }"
+                [ngClass]="{'has-invalid': StartDate.invalid && (StartDate.dirty || StartDate.touched), 'has-valid': StartDate.valid && (StartDate.dirty || StartDate.touched)}">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="end-date"
+                class="font-weight-bold">{{'body.home.campaign-report.request.endDate' |translate}}:</label>
+              <input type="text" class="form-control input-search" name="" id="end-date" autocomplete="off"
+                formControlName="endDate" [placeholder]="'body.home.campaign-report.request.endDate' | translate"
+                bsDatepicker [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD-MM-YYYY' }"
+                [ngClass]="{'has-invalid': EndDate.invalid && (EndDate.dirty || EndDate.touched), 'has-valid': EndDate.valid && (EndDate.dirty || EndDate.touched)}">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="font-weight-bold">{{'body.home.campaign-report.request.statistics'| translate}}:</label>
+              <ng-select class="input-search" formControlName="interval"
+                [placeholder]="'body.home.campaign-report.request.statistics' | translate" [clearable]="false"
+                [notFoundText]="'body.search.notFoundText' |translate" dropdownPosition="bottom"
+                [ngClass]="{'has-invalid': Interval.invalid && (Interval.dirty || Interval.touched), 'has-valid': Interval.valid && (Interval.dirty || Interval.touched)}">
+                <ng-option *ngFor="let interval of intervals" [value]="interval.key">{{interval.value}}</ng-option>
+              </ng-select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-0">
+          <button type=" button" class="btn btn-primary" [disabled]="!form.valid" (click) ="onSubmit($event)" translate>body.modal.submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

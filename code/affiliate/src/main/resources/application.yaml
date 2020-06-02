@@ -1,0 +1,22 @@
+server:
+  port: 9007
+  application:
+    name: affiliate
+spring:
+  rabbitmq:
+    host: 171.244.9.248
+    port: 5672
+    username: qlds
+    password: ghdc@123
+affiliate:
+  db-default: tracking
+  allow-endpoint:
+    - "/auth/login"
+    - "/tracks/**"
+    - "/incomes/**"
+    - "/v3/api-docs"
+    - "/configuration/**"
+    - "/swagger*/**"
+  es-url: http://125.212.226.94:9200
+
+

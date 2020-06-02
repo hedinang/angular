@@ -1,0 +1,272 @@
+{
+  "app-name": "Affiliate-System",
+  "header": {
+    "function": {
+      "title": "Function",
+      "partner": "Partner Manager",
+      "campaign": "Campaign Manager"
+    },
+    "search": {
+      "title": "Search"
+    },
+    "report": {
+      "title": "Report"
+    },
+    "manager-system": {
+      "title": "System Manager",
+      "account": "Account Manager",
+      "group-user": "Group Account Manager",
+      "permissions": "Permission Manager"
+    },
+    "support": {
+      "title": "Support"
+    },
+    "language": {
+      "title": "Language",
+      "vi": "Vietnamese",
+      "en": "English"
+    },
+    "avatar": {
+      "information": "Infomation Account",
+      "logout": "Logout"
+    }
+  },
+  "body": {
+    "login": {
+      "title": "Login",
+      "username": "UserName",
+      "password": "Password",
+      "remember-me": "Remember me",
+      "forgot-password": "Forgot Password"
+    },
+    "share": {
+      "control-group": {
+        "add": "Add",
+        "edit": "Edit",
+        "option": "Option",
+        "delete": "Xóa",
+        "export-excel": "Export Excel"
+      }
+    },
+    "home": {
+      "title": "Report Campaign",
+      "campaign-report": {
+        "table": {
+          "id": "ID",
+          "partner": "Name Partner",
+          "title": "Title",
+          "source": "Source",
+          "action": "Action",
+          "view-number": "View Number",
+          "click-number": "Click Number",
+          "income": "Income",
+          "register": "Register",
+          "cancle": "Cancle",
+          "mo": "MO",
+          "renew": "Renew",
+          "detail": "Detail"
+        },
+        "request": {
+          "startDate": "Start Date",
+          "endDate": " End Date",
+          "statistics": "Statistics",
+          "byDay": "By Day",
+          "byMonth": "By Month"
+        },
+        "chart": {
+          "bar-chart": "Column chart",
+          "pie-chart": "Pie chart"
+        },
+        "tracking": {
+          "title": "THEO DÕI",
+          "os": {
+            "title": "Operating System",
+            "name": "Number"
+          },
+          "isp": {
+            "title": "ISP",
+            "name": "Number"
+          }
+        },
+        "income": {
+          "title": "INCOME",
+          "type": "type income",
+          "value": "income",
+          "currency-unit": "VND",
+          "day": "Date"
+        }
+      }
+    },
+    "manager-system": {
+      "account": {
+        "title": "ACCOUNT MANAGER",
+        "translate": "account",
+        "control": {
+          "add": {
+            "title": "Add Account"
+          },
+          "edit": {
+            "title": "Edit Account"
+          },
+          "delete": {
+            "title": "Confirm",
+            "message": "Do you want to delete account ?"
+          }
+        },
+        "table": {
+          "id": "ID",
+          "partnerName": "Partner name",
+          "userName": "Username",
+          "displayName": "Display name",
+          "email": "Email",
+          "phoneNumber": "Phone number",
+          "groupAccount": "Group account",
+          "status": "Status"
+        }
+      },
+      "group-account": {
+        "title": "GROUP ACCOUNT MANAGER",
+        "translate": "group account",
+        "control": {
+          "add": {
+            "title": "Add group account"
+          },
+          "edit": {
+            "title": "Edit group account"
+          },
+          "delete": {
+            "title": "Confirm",
+            "message": "Do you want to delete group account ?"
+          },
+          "option": {
+            "name": "Permisstion",
+            "title": "Edit permisstion of group account",
+            "action-text": "update permisstion of"
+          }
+        },
+        "table": {
+          "id": "ID",
+          "name": "Group account name",
+          "descriptions": "Group account descriptions",
+          "code": "Group account code"
+        }
+      },
+      "permissions": {
+        "title": "PERMISSTION MANAGER",
+        "translate": "permisstion",
+        "control": {
+          "add": {
+            "title": "Add permisstion"
+          },
+          "edit": {
+            "title": "Edit permisstion"
+          },
+          "delete": {
+            "title": "Confirm",
+            "message": "Do you want to delete permisstion ?"
+          }
+        },
+        "table": {
+          "id": "ID",
+          "code": "Permisstion code",
+          "name": "Permisstion name",
+          "descriptions": "Permisstion descriptions",
+          "parent": "Permistion parent"
+        }
+      }
+    },
+    "function": {
+      "partner": {
+        "title": "PARTNER",
+        "translate": "partner",
+        "control": {
+          "add": {
+            "title": "Add partner"
+          },
+          "edit": {
+            "title": "Edit partner"
+          },
+          "delete": {
+            "title": "Confirm",
+            "message": "Do you want to delete partner ?"
+          }
+        },
+        "table": {
+          "id": "ID",
+          "name": "Partner name",
+          "description": "Partner description",
+          "status": "Status"
+        },
+        "toast": {
+          "error-status": "Partner is using!"
+        }
+      },
+      "campaign": {
+        "title": "CAMPAIGN MANAGER",
+        "translate": "campaign",
+        "control": {
+          "add": {
+            "title": "Add campaign"
+          },
+          "edit": {
+            "title": "Edit campaign"
+          },
+          "delete": {
+            "title": "Confirm",
+            "message": "Do you want to delete campaign ?"
+          },
+          "option": {
+            "title": "Create script for manager",
+            "action": "Copy to clipboard",
+            "notify": "Copy data successful"
+          }
+        },
+        "table": {
+          "id": "ID",
+          "partner": "Partner",
+          "title": "Title",
+          "source": "Source",
+          "type": "Type partner",
+          "is-post-back": "Is post back"
+        },
+        "post-back": {
+          "yes": "post back",
+          "no": "Not post back"
+        },
+        "type": {
+          "not-found": "Not data"
+        }
+      }
+    },
+    "user-infor": {
+      "title": "ACCOUNT INFOMATION"
+    },
+    "search": {
+      "notFoundText": "Not found text"
+    },
+    "pagegination": {
+      "next": "Next",
+      "previous": "Previous",
+      "screenReaderCurrent": "Screen Reader Current"
+    },
+    "toastr": {
+      "success": "success",
+      "unsuccess": "unsuccess",
+      "notify": "You do",
+      "notify-add": "You have add",
+      "notify-edit": "You have updated",
+      "notify-delete": "You have deleted",
+      "complete": "Completed",
+      "error": "Error"
+    },
+    "modal": {
+      "yes": "Yes",
+      "no": "No",
+      "cancle": "Cancle",
+      "submit": "Submit",
+      "create": "Create",
+      "edit": "Update"
+    }
+  },
+  "footer": {}
+}

@@ -1,0 +1,11 @@
+server:
+  port: 9005
+  application:
+    name: sync-affiliate
+spring:
+  rabbitmq:
+    host: 171.244.9.248
+    port: 5672
+    username: qlds
+    password: ghdc@123
+urlES: http://125.212.226.94:9200/

@@ -1,0 +1,110 @@
+@import '../../../@theme/styles/variables';
+@import '../../../@theme/styles/mixins';
+@import '../../../@theme/styles/common';
+
+header {
+  >nav {
+    padding: 0 !important;
+    background-color: $color-bg-header;
+  }
+}
+
+.navbar-nav {
+  .nav-item {
+    cursor: pointer;
+    padding-left: .375rem;
+
+    .nav-link {
+      color: $color-white;
+      font-weight: 500;
+    }
+
+    &:hover {
+      &:not(.no-hover) {
+        background-color: $color-bg-hover-header;
+
+      }
+
+      &.no-hover {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.dropdown {
+  .dropdown-menu {
+    padding: 0.5rem 0;
+
+    .dropdown-item {
+      color: $color-item-dropdown;
+      font-weight: 500;
+
+      &:hover {
+        background-color: $color-bg-header;
+        color: $color-white;
+      }
+    }
+  }
+}
+
+#avatar {
+  display: flex;
+
+  em {
+    font-size: 1.5rem;
+    padding-right: .5rem;
+    align-items: center;
+    color: $color-white;
+  }
+
+  span {
+    color: $color-white;
+    align-items: center;
+  }
+
+  &:after {
+    display: none;
+  }
+}
+
+#select-language {
+  width: 100px;
+
+  ::ng-deep .ng-select-container {
+    background: $color-bg-header;
+    color: $color-white;
+    border: none;
+    &:hover {
+      background: $color-bg-hover-header;
+    }
+  }
+
+  ::ng-deep .ng-option {
+    &.ng-option-selected {
+      background: $color-bg-header;
+      color: $color-white;
+    }
+
+    &:not(.ng-option-selected) {
+      color: $color-item-dropdown;
+    }
+
+  }
+
+  ::ng-deep &.ng-select-opened {
+    .ng-arrow-wrapper {
+      .ng-arrow {
+        border-color: transparent transparent $color-white;
+      }
+    }
+  }
+
+  ::ng-deep &:not(.ng-select-opened) {
+    .ng-arrow-wrapper {
+      .ng-arrow {
+        border-color: $color-white transparent transparent;
+      }
+    }
+  }
+}

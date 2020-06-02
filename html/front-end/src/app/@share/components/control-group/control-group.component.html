@@ -1,0 +1,18 @@
+<div class="btn-group">
+  <button *ngIf="showAdd" (click)="onAdd($event)" [disabled]="isDisableAdd" translate type="button"
+    class="btn btn-primary">
+    <em class="fa fa-pencil pr-2"></em>
+    body.share.control-group.add</button>
+  <button *ngIf="showEdit" (click)="onEdit($event)" [disabled]="isDisableEdit" translate type="button"
+    class="btn btn-info">
+    <em class="fa fa-edit pr-2"></em>body.share.control-group.edit</button>
+  <button *ngIf="showOption" (click)="onOption($event)" [disabled]="isDisableOption" translate type="button"
+    class="btn btn btn-secondary">
+    <em class="fa fa-cog pr-2"></em>{{optionText}}</button>
+  <button *ngIf="showDelete" (click)="onDelete($event)" [disabled]="isDisableDelete" translate type="button"
+    class="btn btn-danger">
+    <em class="fa fa-trash-o pr-2"></em>body.share.control-group.delete</button>
+  <button *ngIf="showExportExcel" (click)="onExportExcel($event)" [disabled]="isDisableExportExcel" translate
+    type="button" class="btn btn-success">
+    <em class="fa fa-file-excel-o pr-2"></em>body.share.control-group.export-excel</button>
+</div>

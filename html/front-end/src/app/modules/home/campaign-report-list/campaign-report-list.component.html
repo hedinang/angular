@@ -1,0 +1,90 @@
+<app-control-campaign-report [campaignReportForm]="campaignReportForm" [isShow]="isShowControl" (action)="onSubmit()">
+</app-control-campaign-report>
+<div class="box box-pane">
+  <div class="box-body">
+    <div class="box-body-item">
+      <ui-switch (change)="isShowControl = !isShowControl" [(ngModel)]="isShowControl"></ui-switch>
+    </div>
+
+    <div class="box-body-item">
+      <div>
+        <table class="table table-hover table-bordered" id="campaign-report-list">
+          <thead>
+            <tr>
+              <th translate>body.home.campaign-report.table.id</th>
+              <th translate>body.home.campaign-report.table.partner</th>
+              <th translate>body.home.campaign-report.table.title</th>
+              <!-- <th translate>body.home.campaign-report.table.source</th> -->
+              <th translate>body.home.campaign-report.table.view-number</th>
+              <th translate>body.home.campaign-report.table.click-number</th>
+              <th translate>body.home.campaign-report.table.income</th>
+              <th translate>body.home.campaign-report.table.register</th>
+              <th translate>body.home.campaign-report.table.cancle</th>
+              <th translate>body.home.campaign-report.table.mo</th>
+              <th translate>body.home.campaign-report.table.renew</th>
+              <th translate>body.home.campaign-report.table.action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-control">
+              <td></td>
+              <td>
+                <ng-select class="input-search" [clearable]="false" dropdownPosition="bottom"
+                  (change)="search(keyForSorts[0])" [notFoundText]="'body.search.notFoundText' |translate"
+                  [(ngModel)]="partner" [placeholder]="'body.home.campaign-report.table.partner' |translate">
+                  <ng-option *ngFor="let partner of listPartners" [value]="partner">{{partner.name}}</ng-option>
+                </ng-select>
+
+              </td>
+              <td>
+                <input translate type="text" class="form-control input-search"
+                  [placeholder]="'body.home.campaign-report.table.title' |translate" autocomplete="off"
+                  [(ngModel)]="title" (keyup.enter)="search(keyForSorts[1])" (focusout)="search(keyForSorts[1])"
+                  (keydown)="resetInputSearch(keyForSorts[1])" />
+              </td>
+              <!-- <td>
+                <input translate type="text" class="form-control input-search"
+                  [placeholder]="'body.home.campaign-report.table.source' |translate" autocomplete="off"
+                  [(ngModel)]="source" (keyup.enter)="search(keyForSorts[0])" (focusout)="search(keyForSorts[0])"
+                  (keydown)="resetInputSearch(keyForSorts[2])" />
+              </td> -->
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr *ngFor="let campaignReport of listCampaignReport ; let i = index"
+              (click)="selectCampaignReport(campaignReport)"
+              [ngClass]="{'selected-item': campaignReport.id === campaignReportSelected.id}">
+              <td class="text-center">{{i+1 +(currentPage -1)*itemsPerPage}}</td>
+              <td>{{campaignReport.partnerName}}</td>
+              <td>{{campaignReport.title}}</td>
+              <!-- <td>{{campaignReport.source}}</td> -->
+              <td>
+                {{campaignReport.tracking.viewNumber.buckets.length > 0 ? campaignReport.tracking.viewNumber.buckets[0].doc_count :0}}
+              </td>
+              <td>
+                {{campaignReport.tracking.clickNumber.buckets.length > 0 ? campaignReport.tracking.clickNumber.buckets[0].doc_count :0}}
+              </td>
+              <td>
+                {{campaignReport.income.income.value| number}}
+              </td>
+              <td class="text-center">{{getDataIncome(campaignReport.income,'1')}}</td>
+              <td class="text-center">{{getDataIncome(campaignReport.income,'2')}}</td>
+              <td class="text-center">{{getDataIncome(campaignReport.income,'3')}}</td>
+              <td class="text-center">{{getDataIncome(campaignReport.income,'4')}}</td>
+              <td class="center text-center">
+                <button class="btn btn-info btn-detail" translate (click)="viewDetail(campaignReport)">
+                  body.home.campaign-report.table.detail</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

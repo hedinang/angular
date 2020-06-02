@@ -1,0 +1,22 @@
+<div class="modal-header">
+  <h5 class="modal-title" translate>{{'body.function.campaign.control.option.title'}}</h5>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="onClose('NO')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+  <textarea name="script" id="script" [(ngModel)]="script" class="box-script" readonly>
+  </textarea>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="onSubmit()">
+    <em class="fa fa-pencil pr-1"></em>
+    <span translate>{{'body.function.campaign.control.option.action'}}</span>
+  </button>
+  <button type="button" class="btn btn-secondary" (click)="onClose('NO')" translate>
+    <em class="fa fa-close pr-1"></em>
+    <span translate>body.modal.cancle</span>
+  </button>
+</div>

@@ -1,0 +1,170 @@
+@import './variables';
+@import './mixins';
+
+.height-30 {
+  height: 1.875rem;
+}
+
+body {
+  font-family: $font-body;
+  font-weight: 400;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+  font-size: 14px;
+  background-color: $color-content;
+}
+
+.main-wrapper {
+  padding-top: 42px;
+}
+
+.content {
+  padding: .75rem;
+}
+
+.box {
+  position: relative;
+  border-radius: 3px;
+  background: $color-white;
+  width: 100%;
+  box-shadow: 0 1px 1px #0000001a;
+  border: none;
+
+  &.box-pane {
+    &:not(.not-bottom){
+      margin-bottom: .375rem;
+    }
+  }
+}
+
+.box-header {
+  border-radius: .25rem;
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid $color-br-bt-box-header;
+  display: block;
+  position: relative;
+
+  .box-title {
+    display: inline-block;
+    font-size: 18px;
+    margin: 0;
+    line-height: 1;
+    color: $color-box-header;
+    font-weight: 400;
+  }
+}
+
+.box-body {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: .25rem;
+  border-bottom-left-radius: .25rem;
+  padding: .75rem;
+
+  &:after, &:before {
+    content: " ";
+    display: table;
+    box-sizing: border-box;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  .box-body-item {
+    margin-bottom: .75rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.table {
+
+  &.table-bordered {
+    border: none;
+  }
+
+  thead {
+    tr {
+
+      th {
+        padding: .375rem;
+        text-align: center;
+        min-height: 1.875rem;
+        font-size: 14px;
+        color: $color-box-header;
+        background-color: $color-bg-table-header;
+        vertical-align: middle;
+      }
+    }
+
+  }
+
+  tbody {
+    tr {
+      &.table-control {
+        background: $color-white;
+      }
+
+      td {
+        padding: .375rem;
+        vertical-align: middle;
+        .input-search {
+          height: 36px;
+          border-radius: .25rem;
+        }
+      }
+
+      &.selected-item {
+        background-color: $color-bg-selected-item;
+      }
+
+      &.table-hover:focus {
+        background-color: $color-bg-table-header;
+      }
+    }
+  }
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected .ng-option-label, .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-selected.ng-option-marked .ng-option-label {
+  font-weight: 400;
+}
+
+.page-size {
+  float: right;
+  width: 60px;
+}
+
+// Custom ngx-pagination
+.ngx-pagination {
+  padding-left: 0;
+  border-radius: .25rem;
+  height: 2rem;
+  margin: 0;
+}
+
+.ngx-pagination a,
+.ngx-pagination button {
+  color: #0a0a0a;
+  display: block;
+  border-radius: 0;
+  border: 1px solid $color-br-bt-box-header;
+  position: relative;
+  padding: 6px 12px !important;
+}
+
+.ngx-pagination .current {
+  position: relative;
+  border: 1px solid $color-br-bt-box-header;
+  padding: 6px 12px !important;
+}
+
+.ngx-pagination .disabled {
+  position: relative;
+  border: 1px solid $color-br-bt-box-header;
+  padding: 6px 12px !important;
+}

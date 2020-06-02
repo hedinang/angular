@@ -1,0 +1,57 @@
+<!-- Control -->
+<div class="box-body-item">
+  <app-control-group [isDisableAdd]="!enableAddButton" [isDisableEdit]="!enableEditButton" [isDisableDelete]="!enableEditButton"
+    [showExportExcel]=false (add)="addPartner()" (edit)="editPartner(partnerSelected)" (delete)="deletePartner(partnerSelected)">
+  </app-control-group>
+</div>
+<!-- Table -->
+<div class="box-body-item">
+  <table class="table table-hover table-bordered" id="account-list">
+    <thead>
+      <tr>
+        <th translate>body.function.partner.table.id</th>
+        <th translate>body.function.partner.table.name</th>
+        <th translate>body.function.partner.table.description</th>
+        <th translate>body.function.partner.table.status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-control">
+        <td></td>
+        <td>
+          <input translate type="text" class="form-control input-search"
+            [placeholder]="'body.function.partner.table.name' |translate" autocomplete="off" [(ngModel)]="name"
+            (keyup.enter)="search(keyForSorts[0])" (focusout)="search(keyForSorts[0])" (keydown)="resetInputSearch(keyForSorts[0])" />
+        </td>
+        <td>
+          <input translate type="text" class="form-control input-search"
+            [placeholder]="'body.function.partner.table.description' |translate" autocomplete="off" [(ngModel)]="description"
+            (keyup.enter)="search(keyForSorts[1])" (focusout)="search(keyForSorts[1])" (keydown)="resetInputSearch(keyForSorts[1])" />
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr *ngFor="let partner of listPartner | paginate : {
+        itemsPerPage: itemsPerPage,
+        currentPage: currentPage,
+        totalItems: totalItems
+      }; let i = index" (click)="selectPartner(partner)" [ngClass]="{'selected-item': partner.id === partnerSelected.id}">
+        <td class="text-center">{{i+1 +(currentPage -1)*itemsPerPage}}</td>
+        <td>{{partner.name}}</td>
+        <td>{{partner.description}}</td>
+        <td>{{partner.status == true ? 'Sử dụng': 'Không sử dụng'}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination -->
+  <div class="d-flex flex-row-reverse">
+    <ng-select class="page-size" dropdownPosition="bottom" [clearable]="false" [searchable]="false" [(ngModel)]="itemsPerPage">
+      <ng-option *ngFor="let number of numberItemPerPages" [value]="number">{{number}}</ng-option>
+    </ng-select>
+    <pagination-controls (pageChange)="onChangePage($event)" (pageBoundsCorrection)="onChangePage($event)" directionLinks="true"
+      responsive="true" [previousLabel]="'body.pagegination.previous'| translate" [nextLabel]="'body.pagegination.next'| translate"
+      [screenReaderCurrentLabel]="'body.pagegination.screenReaderCurrent'| translate">
+    </pagination-controls>
+  </div>
+

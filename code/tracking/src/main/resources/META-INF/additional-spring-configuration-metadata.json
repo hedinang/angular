@@ -1,0 +1,18 @@
+{
+  "properties": [
+    {
+      "name": "affiliate.db-default",
+      "type": "java.lang.String",
+      "description": "Description for affiliate.data-default."
+    },
+    {
+      "name": "affiliate.allow-endpoint",
+      "type": "java.lang.String",
+      "description": "Description for affiliate.allow-endpoint."
+    },
+    {
+      "name": "affiliate.es-url",
+      "type": "java.lang.String",
+      "description": "Description for affiliate.es-url."
+    }
+  ] }
